@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-end';
+  pelicula ={
+  nombre:'spiderman',
+  fechaDeLanzamiento: new Date()
+  };
+
+  duplicarValor(valor: number): number{
+    return valor *2;
+  }
 }
