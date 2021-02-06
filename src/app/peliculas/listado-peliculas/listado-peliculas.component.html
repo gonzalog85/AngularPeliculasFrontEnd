@@ -1,0 +1,19 @@
+<p>listado-peliculas works!</p>
+<div *ngIf="!peliculas">
+  <img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" />
+</div>
+
+<div *ngIf="peliculas?.length === 0">
+  <p>No hay peliculas para mostrar</p>
+</div>
+
+<div *ngIf="peliculas && peliculas.length > 0">
+  <div *ngFor="let pelicula of peliculas, let i = index" class="peliculas-contenedor">
+    <h4>Datos de la pelicula {{i}}</h4>
+    <div>
+      Nombre: {{pelicula.nombre}},
+    </div>
+    <div>Fecha de lanzamiento: {{pelicula.fechaLanzamiento | date:'dd/MMMM/yyyy'}}</div>
+    <div>Precio: {{pelicula.precio | currency}}</div>
+  </div>
+</div>

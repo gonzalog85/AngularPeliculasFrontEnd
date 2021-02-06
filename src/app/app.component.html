@@ -1,3 +1,5 @@
+
+<!--
 <p>Hola Mundo</p>
 
 <h2>Datos de la pelicula</h2>
@@ -6,26 +8,13 @@
 
 <h3>Usar una funcion con interpolacion</h3>
 <p>El doble de 3 es: {{duplicarValor(3)}}</p>
+-->
 
-<hr />
+<h3>Estrenos</h3>
 
-<h3>Lista de series</h3>
+<app-listado-peliculas [peliculas] = 'peliculasEstrenos'></app-listado-peliculas>
 
-<div *ngIf="!series">
-  <img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" />
-</div>
+<h3>Proximos lanzamientos</h3>
 
-<div *ngIf="series?.length === 0">
-  <p>No hay series para mostrar</p>
-</div>
+<app-listado-peliculas [peliculas] = 'proximosLanzamientos'></app-listado-peliculas>
 
-<div *ngIf="series && series.length > 0">
-  <div *ngFor="let serie of series, let i = index" class="series-contenedor">
-    <h4>Datos de la serie {{i}}</h4>
-    <div>
-      Nombre: {{serie.nombre}},
-    </div>
-    <div>Fecha de lanzamiento: {{serie.fechaLanzamiento | date:'dd/MMMM/yyyy'}}</div>
-    <div>Precio: {{serie.precio | currency}}</div>
-  </div>
-</div>
