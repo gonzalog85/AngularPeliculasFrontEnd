@@ -15,4 +15,15 @@ export class AppComponent {
   duplicarValor(valor: number): number{
     return valor *2;
   }
+
+  series = [{
+   nombre:'Walking Dead',
+   fechaLanzamiento: new Date(26/12/20),
+   precio: 320
+  },
+  {
+    nombre:'Braking Bad',
+    fechaLanzamiento: new Date(),
+    precio: 500
+  }]
 }

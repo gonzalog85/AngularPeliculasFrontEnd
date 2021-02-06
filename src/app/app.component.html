@@ -2,7 +2,19 @@
 
 <h2>Datos de la pelicula</h2>
 <div>Nombre: {{pelicula.nombre | uppercase}}</div>
-<div>Fecha de lanzamiento:{{pelicula.fechaDeLanzamiento | date:'dd/MMMM/yyyy'}}</div>
+<div>Fecha de lanzamiento: {{pelicula.fechaDeLanzamiento | date:'dd/MMMM/yyyy'}}</div>
 
 <h3>Usar una funcion con interpolacion</h3>
 <p>El doble de 3 es: {{duplicarValor(3)}}</p>
+
+<hr/>
+
+<h3>Lista de series</h3>
+<div *ngFor="let serie of series, let index =index" class="series-contenedor">
+<h4>Datos de la serie {{index}}</h4>
+<div>
+  Nombre: {{serie.nombre}},
+</div>
+<div>Fecha de lanzamiento: {{serie.fechaLanzamiento | date:'dd/MMMM/yyyy'}}</div>
+<div>Precio: {{serie.precio | currency}}</div>
+</div>
