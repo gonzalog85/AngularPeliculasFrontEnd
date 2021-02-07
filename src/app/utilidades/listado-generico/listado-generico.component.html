@@ -1,0 +1,13 @@
+<p>listado-generico works!</p>
+<div *ngIf="!listado">
+  <img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" />
+</div>
+
+<div *ngIf="listado?.length === 0">
+  <p>No hay peliculas para mostrar</p>
+</div>
+
+<!--El ng-container se utiliza para "ocultar" la etiqueta externa y de esta manera no se incluye en el DOM-->
+<ng-container *ngIf="listado && listado.length > 0">
+  <ng-content select="[contenido]"></ng-content>
+</ng-container>
