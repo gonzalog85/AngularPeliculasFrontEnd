@@ -3,8 +3,12 @@
   <img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" />
 </div>
 
+<!--Recibe mensaje personalizado y si no se manda nada sale <p> por defecto-->
 <div *ngIf="listado?.length === 0">
+  <span #vacio><ng-content select="[vacio]"></ng-content></span>
+  <span *ngIf="!vacio.innerHTML.trim()">
   <p>No hay peliculas para mostrar</p>
+  </span>
 </div>
 
 <!--El ng-container se utiliza para "ocultar" la etiqueta externa y de esta manera no se incluye en el DOM-->

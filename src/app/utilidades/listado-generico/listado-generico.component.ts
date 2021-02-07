@@ -7,10 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListadoGenericoComponent implements OnInit {
 
-  constructor() { }
-
-   @Input()
+  @Input()
   listado:any;
+  constructor() { }
 
   ngOnInit(): void {
   }

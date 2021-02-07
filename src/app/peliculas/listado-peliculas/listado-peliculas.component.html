@@ -1,4 +1,10 @@
 <app-listado-generico [listado]="peliculas">
+
+  <!--Enviar mensaje personalizado por referencia-->
+  <ng-container vacio>
+    <div>Mensaje personalizado para contenido <b>Vacio</b></div>
+  </ng-container>
+
 <ng-container contenido>
   <div *ngFor="let pelicula of peliculas, let i = index" class="peliculas-contenedor">
     <h4>Datos de la pelicula {{i}}</h4>
