@@ -15,5 +15,6 @@
     </div>
     <div>Fecha de lanzamiento: {{pelicula.fechaLanzamiento | date:'dd/MMMM/yyyy'}}</div>
     <div>Precio: {{pelicula.precio | currency}}</div>
+    <button (click)='borrar(i)'>Borrar</button>
   </div>
 </div>
