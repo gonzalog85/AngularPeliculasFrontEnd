@@ -11,6 +11,10 @@
 -->
 <app-menu></app-menu>
 <div class="contenedor">
+
+  <app-rating (rated)="manejarRated($event)"></app-rating>
+
+<!--
   <h3>Estrenos</h3>
 
   <app-listado-peliculas [peliculas] = 'peliculasEstrenos'></app-listado-peliculas>
@@ -18,6 +22,8 @@
   <h3>Proximos lanzamientos</h3>
 
   <app-listado-peliculas [peliculas] = 'proximosLanzamientos'></app-listado-peliculas>
+-->
+
 </div>
 
 

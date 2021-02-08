@@ -42,6 +42,9 @@ export class AppComponent implements OnInit {
   peliculasEstrenos:any;
   proximosLanzamientos: any;
 
+  manejarRated(calificado:number):void{
+    alert(calificado);
+  }
 
 /*
   title = 'front-end';
