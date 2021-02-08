@@ -1,19 +1,27 @@
 <app-listado-generico [listado]="peliculas">
 
   <!--Enviar mensaje personalizado por referencia-->
-  <ng-container vacio>
+  <!-- <ng-container vacio>
     <div>Mensaje personalizado para contenido <b>Vacio</b></div>
   </ng-container>
+-->
 
-<ng-container contenido>
-  <div *ngFor="let pelicula of peliculas, let i = index" class="peliculas-contenedor">
-    <h4>Datos de la pelicula {{i}}</h4>
-    <div>
-      Nombre: {{pelicula.nombre}},
+  <ng-container contenido>
+
+    <div class="peliculas-contenedor">
+      <div *ngFor="let pelicula of peliculas; let i = index" class="pelicula-contenedor">
+        <a>
+          <img [src]="pelicula.poster" alt="Poster"/>
+        </a>
+        <p>
+          <a>{{pelicula.nombre}}</a>
+        </p>
+        <div>
+          <a mat-flat-button color="primary">Editar</a>
+          <button mat-flat-button color="warn" type="button">Borrar</button>
+        </div>
+      </div>
     </div>
-    <div>Fecha de lanzamiento: {{pelicula.fechaLanzamiento | date:'dd/MMMM/yyyy'}}</div>
-    <div>Precio: {{pelicula.precio | currency}}</div>
-    <button (click)='borrar(i)'>Borrar</button>
-  </div>
-</ng-container>
+
+  </ng-container>
 </app-listado-generico>

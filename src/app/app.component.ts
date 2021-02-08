@@ -11,16 +11,18 @@ export class AppComponent implements OnInit {
       this.peliculasEstrenos = [{
         nombre: 'Rocky',
         fechaLanzamiento: new Date(26 / 12 / 20),
-        precio: 320
+        precio: 320,
+        poster:"https://m.media-amazon.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@._V1_UX182_CR0,0,182,268_AL_.jpg"
       },
       {
         nombre: 'Rambo',
         fechaLanzamiento: new Date(),
-        precio: 500
+        precio: 500,
+        poster:"https://m.media-amazon.com/images/M/MV5BZWFkY2I1ZDAtNmZhNS00NjVlLWJiMGQtMGQ1ZmM0ZDA5ODg5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
       }]
     }, 1000);
 
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.proximosLanzamientos = [{
         nombre: 'Walking dead the movie',
         fechaLanzamiento: new Date(26 / 12 / 20),
@@ -36,11 +38,11 @@ export class AppComponent implements OnInit {
         fechaLanzamiento: new Date(),
         precio: 500
       }]
-    }, 1000);
+    }, 1000);*/
   }
 
   peliculasEstrenos:any;
-  proximosLanzamientos: any;
+  proximosLanzamientos:any =[];
 
   manejarRated(calificado:number):void{
     alert(calificado);
