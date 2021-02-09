@@ -24,6 +24,7 @@ import { EditarGeneroComponent } from './generos/editar-genero/editar-genero.com
 import { EditarCineComponent } from './cines/editar-cine/editar-cine.component';
 import { EditarActorComponent } from './actores/editar-actor/editar-actor.component';
 import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
+import { FormularioGenerosComponent } from './generos/formulario-generos/formulario-generos.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-peli
     EditarGeneroComponent,
     EditarCineComponent,
     EditarActorComponent,
-    EditarPeliculaComponent
+    EditarPeliculaComponent,
+    FormularioGenerosComponent
   ],
   imports: [
     BrowserModule,
