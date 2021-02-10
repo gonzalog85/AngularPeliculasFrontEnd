@@ -1,3 +1,4 @@
+import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
 import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
 import { EditarCineComponent } from './cines/editar-cine/editar-cine.component';
 import { EditarActorComponent } from './actores/editar-actor/editar-actor.component';
@@ -15,23 +16,24 @@ import { componentFactoryName } from '@angular/compiler';
 import { IndiceCinesComponent } from './cines/indice-cines/indice-cines.component';
 
 const routes: Routes = [
-  {path:'', component: LandingPageComponent},
-  {path:'generos', component: IndiceGenerosComponent},
-  {path:'generos/crear', component: CrearGeneroComponent},
-  {path:'generos/editar/:id', component: EditarGeneroComponent},
+  { path: '', component: LandingPageComponent },
+  { path: 'generos', component: IndiceGenerosComponent },
+  { path: 'generos/crear', component: CrearGeneroComponent },
+  { path: 'generos/editar/:id', component: EditarGeneroComponent },
 
-  {path:'actores', component: IndiceActoresComponent},
-  {path:'actores/crear', component: CrearActorComponent},
-  {path:'actores/editar/:id', component: EditarActorComponent},
+  { path: 'actores', component: IndiceActoresComponent },
+  { path: 'actores/crear', component: CrearActorComponent },
+  { path: 'actores/editar/:id', component: EditarActorComponent },
 
-  {path:'cines', component: IndiceCinesComponent},
-  {path:'cines/crear', component: CrearCineComponent},
-  {path:'cines/editar/:id', component: EditarCineComponent},
+  { path: 'cines', component: IndiceCinesComponent },
+  { path: 'cines/crear', component: CrearCineComponent },
+  { path: 'cines/editar/:id', component: EditarCineComponent },
 
-  {path:'peliculas/crear', component: CrearPeliculaComponent},
-  {path:'peliculas/editar/:id', component: EditarPeliculaComponent},
+  { path: 'peliculas/crear', component: CrearPeliculaComponent },
+  { path: 'peliculas/editar/:id', component: EditarPeliculaComponent },
+  { path: 'peliculas/buscar', component: FiltroPeliculasComponent },
 
-  {path:'**', redirectTo:''}
+  { path: '**', redirectTo: '' }
 
 ];
 

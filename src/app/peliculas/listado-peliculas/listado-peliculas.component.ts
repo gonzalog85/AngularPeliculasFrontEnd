@@ -10,14 +10,14 @@ export class ListadoPeliculasComponent implements OnInit {
   constructor() { }
 
   @Input()
-  peliculas:any;
+  peliculas: any;
 
 
   ngOnInit(): void {
   }
 
-  borrar(elementoIndice:number ):void{
-    this.peliculas.splice(elementoIndice,1);
+  borrar(elementoIndice: number): void {
+    this.peliculas.splice(elementoIndice, 1);
   }
 
 }
