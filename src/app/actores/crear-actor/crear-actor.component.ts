@@ -1,3 +1,4 @@
+import { actorCreacionDTO } from './../actor';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -13,8 +14,9 @@ export class CrearActorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  guardarCambios(){
+  guardarCambios(actor: actorCreacionDTO){
     // ... Guardar cambios en base de datos
+    console.log(actor);
     this.router.navigate(['/actores']);
   }
 
