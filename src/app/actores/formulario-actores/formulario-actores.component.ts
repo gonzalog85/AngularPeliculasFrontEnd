@@ -40,5 +40,4 @@ export class FormularioActoresComponent implements OnInit {
   onSubmit(){
     this.submit.emit(this.form.value);
   }
-
 }
