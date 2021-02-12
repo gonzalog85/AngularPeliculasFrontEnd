@@ -9,11 +9,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from'@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
-
 import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-
 import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -28,7 +26,8 @@ import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/mat
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatTabsModule
   ],
   imports: [
     CommonModule

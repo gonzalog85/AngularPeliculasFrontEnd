@@ -18,7 +18,7 @@ export class FormularioActoresComponent implements OnInit {
   modelo!: actorDTO;
 
   @Output()
-  submit: EventEmitter<actorCreacionDTO> = new EventEmitter<actorCreacionDTO>();
+  onSubmit: EventEmitter<actorCreacionDTO> = new EventEmitter<actorCreacionDTO>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -26,7 +26,8 @@ export class FormularioActoresComponent implements OnInit {
         validators: [Validators.required]
       }],
       fechaNacimiento:'',
-      foto:''
+      foto:'',
+      biografia:''
     });
     if(this.modelo != undefined){
       this.form.patchValue(this.modelo)
@@ -37,7 +38,11 @@ export class FormularioActoresComponent implements OnInit {
     this.form.get('foto')?.setValue(file);
   }
 
-  onSubmit(){
-    this.submit.emit(this.form.value);
+  cambioMarkdown(texto:string){
+    this.form.get('biografia')?.setValue(texto);
+  }
+
+  OnSubmit(){
+    this.onSubmit.emit(this.form.value);
   }
 }
