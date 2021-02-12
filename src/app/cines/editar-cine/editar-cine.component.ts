@@ -1,3 +1,4 @@
+import { cineCreacionDTO, cineDTO } from './../cine';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,10 +11,16 @@ export class EditarCineComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute) { }
 
+  modelo: cineDTO = {nombre: "Candilejas"};
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(param =>{
       //alert(param.id);
     })
+  }
+
+  guardarCambios(cine:cineCreacionDTO){
+    console.log(cine);
   }
 
 }

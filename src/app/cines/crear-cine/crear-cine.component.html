@@ -1,3 +1,5 @@
 <p>crear-cine works!</p>
 
-<button mat-flat-button color="primary" type="button" (click)="guardarCambios()">Guardar cambios</button>
+<h2>Crear Cine</h2>
+
+<app-formulario-cines (guardarCambios)="guardarCambios($event)"></app-formulario-cines>
