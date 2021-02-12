@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
-import { error } from 'protractor';
 import { toBase64 } from '../utilidades';
 
 @Component({
@@ -23,12 +21,14 @@ export class InputImgComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  change(event:any){
-    if(event.target.files.length > 0){
+
+  change(event: any) {
+    if (event.target.files.length > 0) {
       const file: File = event.target.files[0];
-      toBase64(file).then((value:any) => this.imagenBase64 = value)
-      .catch(error => console.log(error));
+      toBase64(file).then((value: any) => this.imagenBase64 = value)
+        .catch(error => console.log(error));
       this.archivoSeleccionado.emit(file);
+      this.ulrImagenActual = '';
     }
   }
 
