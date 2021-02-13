@@ -8,7 +8,10 @@ import { ListadoGenericoComponent } from './utilidades/listado-generico/listado-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {ReactiveFormsModule} from '@angular/forms';
-import {MarkdownModule} from 'ngx-markdown'
+import {MarkdownModule} from 'ngx-markdown';
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon.png';
 
 import { MaterialModule } from './material/material.module';
 import { MenuComponent } from './menu/menu.component';
@@ -31,6 +34,7 @@ import { FormularioActoresComponent } from './actores/formulario-actores/formula
 import { InputImgComponent } from './utilidades/input-img/input-img.component';
 import { InputMarkdownComponent } from './utilidades/input-markdown/input-markdown.component';
 import { FormularioCinesComponent } from './cines/formulario-cines/formulario-cines.component';
+import { MapaComponent } from './utilidades/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,8 @@ import { FormularioCinesComponent } from './cines/formulario-cines/formulario-ci
     FormularioActoresComponent,
     InputImgComponent,
     InputMarkdownComponent,
-    FormularioCinesComponent
+    FormularioCinesComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { FormularioCinesComponent } from './cines/formulario-cines/formulario-ci
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    LeafletModule,
     MarkdownModule.forRoot()
   ],
   providers: [],
