@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { PeliculaCreacionDTO } from './../pelicula';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearPeliculaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  guardarCambios(pelicula: PeliculaCreacionDTO){
+    //logica guardar en base de datos
+    console.log(pelicula);
+    this.router.navigate(['/']);
   }
 
 }
