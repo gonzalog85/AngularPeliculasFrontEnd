@@ -30,6 +30,9 @@
   <h4>Resumen de la Pelicula</h4>
   <app-input-markdown [contenidoMarkdown]="modelo?.resumen" (changeMarkdown)="changeMarkdown($event)" [placeHolderTextArea]="'Resumen'"></app-input-markdown>
 
+  <h4>Seleccione los Generos</h4>
+  <app-selector-multiple [Seleccionados]="generosSeleccionados" [NoSeleccionados]="generosNoSeleccionados"></app-selector-multiple>
+
   <div>
     <button mat-flat-button color="primary" [disabled]="form.invalid">Guardar Cambios</button>
     <a mat-stroked-button routerLink="/">Cancelar</a>
