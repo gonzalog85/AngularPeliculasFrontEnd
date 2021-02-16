@@ -13,6 +13,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatTableModule} from '@angular/material/table';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -28,8 +31,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMomentDateModule,
-    MatTabsModule
-
+    MatTabsModule,
+    MatAutocompleteModule,
+    MatTableModule,
+    DragDropModule
   ],
   imports: [
     CommonModule
