@@ -16,8 +16,8 @@ export class EditarActorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(param => {
-      //alert(param.id);
+    this.activatedRoute.params.subscribe(params => {
+      //alert(params.id);
     })
   }
 
