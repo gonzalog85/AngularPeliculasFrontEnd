@@ -1,7 +1,7 @@
 import { environment } from './../../environments/environment';
 import { generoDTO, generoCreacionDTO } from './genero';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,11 +13,14 @@ export class GenerosService {
 
   private apiURL = environment.apiURL + 'generos';
 
-  public obtenerTodos(): Observable<generoDTO[]>{
-    return this.http.get<generoDTO[]>(this.apiURL);
+  public obtenerTodos(pagina: number, cantidadRegistrosAMostrar: number): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('pagina', pagina.toString());
+    params = params.append('recordsPorPagina', cantidadRegistrosAMostrar.toString());
+    return this.http.get<generoDTO[]>(this.apiURL, { observe: 'response', params });
   }
 
-  public crear(genero:generoCreacionDTO){
+  public crear(genero: generoCreacionDTO) {
     return this.http.post(this.apiURL, genero);
   }
 }

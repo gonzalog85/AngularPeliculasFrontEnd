@@ -28,13 +28,16 @@
   <app-input-img [ulrImagenActual]="modelo?.poster" (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
 
   <h4>Resumen de la Pelicula</h4>
-  <app-input-markdown [contenidoMarkdown]="modelo?.resumen" (changeMarkdown)="changeMarkdown($event)" [placeHolderTextArea]="'Resumen'"></app-input-markdown>
+  <app-input-markdown [contenidoMarkdown]="modelo?.resumen" (changeMarkdown)="changeMarkdown($event)"
+    [placeHolderTextArea]="'Resumen'"></app-input-markdown>
 
   <h4>Seleccione los Generos</h4>
-  <app-selector-multiple [Seleccionados]="generosSeleccionados" [NoSeleccionados]="generosNoSeleccionados"></app-selector-multiple>
+  <app-selector-multiple [Seleccionados]="generosSeleccionados" [NoSeleccionados]="generosNoSeleccionados">
+  </app-selector-multiple>
 
   <h4>Seleccione los Cines</h4>
-  <app-selector-multiple [Seleccionados]="cinesSeleccionados" [NoSeleccionados]="cinesNoSeleccionados"></app-selector-multiple>
+  <app-selector-multiple [Seleccionados]="cinesSeleccionados" [NoSeleccionados]="cinesNoSeleccionados">
+  </app-selector-multiple>
 
   <h4>Seleccione los Actores</h4>
   <app-autocomplete-actores></app-autocomplete-actores>

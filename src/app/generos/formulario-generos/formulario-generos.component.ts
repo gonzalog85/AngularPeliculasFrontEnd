@@ -19,7 +19,7 @@ export class FormularioGenerosComponent implements OnInit {
   errores: string[] =[];
 
   @Input()
-  modelo!: generoCreacionDTO;
+  modelo: generoCreacionDTO;
 
 
   @Output()
