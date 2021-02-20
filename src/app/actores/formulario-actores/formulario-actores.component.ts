@@ -12,13 +12,18 @@ export class FormularioActoresComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder) { }
 
-  form!: FormGroup;
+  form: FormGroup;
 
   @Input()
-  modelo!: actorDTO;
+  modelo: actorDTO;
+
+  @Input()
+  errores: string[] = [];
 
   @Output()
   onSubmit: EventEmitter<actorCreacionDTO> = new EventEmitter<actorCreacionDTO>();
+
+  imagenCambiada = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -34,15 +39,19 @@ export class FormularioActoresComponent implements OnInit {
     }
   }
 
-  archivoSeleccionado(file:any){
-    this.form.get('foto')?.setValue(file);
+  archivoSeleccionado(file){
+    this.imagenCambiada = true;
+    this.form.get('foto').setValue(file);
   }
 
   cambioMarkdown(texto:string){
-    this.form.get('biografia')?.setValue(texto);
+    this.form.get('biografia').setValue(texto);
   }
 
   OnSubmit(){
+    if(!this.imagenCambiada){
+      this.form.patchValue({'foto': null});
+    }
     this.onSubmit.emit(this.form.value);
   }
 }
