@@ -15,7 +15,10 @@ export class FormularioCinesComponent implements OnInit {
   form!: FormGroup;
 
   @Input()
-  modelo!: cineCreacionDTO;
+  modelo: cineCreacionDTO;
+
+  @Input()
+  errores: string[] = [];
 
   @Output()
   guardarCambios: EventEmitter<cineCreacionDTO> = new EventEmitter<cineCreacionDTO>();

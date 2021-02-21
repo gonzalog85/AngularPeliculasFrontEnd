@@ -41,4 +41,5 @@ export class MapaComponent implements OnInit {
     this.coordenadaSeleccionada.emit({latitud: latitud, longitud:longitud});
   }
 
+
 }
