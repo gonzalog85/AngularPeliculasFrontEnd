@@ -13,7 +13,7 @@ export class FormularioGenerosComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
-  form!: FormGroup;
+  form: FormGroup;
 
   @Input()
   errores: string[] =[];
