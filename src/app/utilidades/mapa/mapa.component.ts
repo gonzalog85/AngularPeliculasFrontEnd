@@ -1,6 +1,6 @@
 import { Coordenada } from './coordenada';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { latLng, LeafletMouseEvent, marker, Marker, tileLayer } from 'leaflet';
+import { latLng, LeafletMouseEvent, Marker, marker, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-mapa',
@@ -29,6 +29,7 @@ export class MapaComponent implements OnInit {
     center: latLng(-26.830484531710084, -65.20384609722933)
   };
 
+
   capas: Marker<any>[] = [];
 
   manejarClick(event: LeafletMouseEvent){
@@ -37,9 +38,9 @@ export class MapaComponent implements OnInit {
     console.log({latitud, longitud});
 
     this.capas = [];
+
     this.capas.push(marker([latitud, longitud]));
     this.coordenadaSeleccionada.emit({latitud: latitud, longitud:longitud});
   }
-
 
 }

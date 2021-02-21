@@ -12,7 +12,7 @@ export class FormularioCinesComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
-  form!: FormGroup;
+  form: FormGroup;
 
   @Input()
   modelo: cineCreacionDTO;
