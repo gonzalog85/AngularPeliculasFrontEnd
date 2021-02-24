@@ -1,6 +1,6 @@
-import { actorCreacionDTO, actorDTO } from './actor';
+import { actorCreacionDTO, actorDTO, actorPeliculaDTO } from './actor';
 import { environment } from './../../environments/environment';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { formatearFecha } from '../utilidades/utilidades';
 import { Observable } from 'rxjs';
@@ -23,6 +23,12 @@ export class ActoresService {
 
   public obtenerPorId(id: number): Observable<actorDTO>{
     return this.http.get<actorDTO>(`${this.apiURL}/${id}`);
+  }
+
+  public obtenerPorNombre(nombre: string): Observable<actorPeliculaDTO[]>{
+    const headers = new HttpHeaders('Content-Type: application/json');
+    return this.http.post<actorPeliculaDTO[]>(`${this.apiURL}/buscarPorNombre`,
+    JSON.stringify(nombre), {headers});
   }
 
   public crear(actor: actorCreacionDTO){

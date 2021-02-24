@@ -1,7 +1,9 @@
+import { ActoresService } from './../../actores/actores.service';
 import { MultipleSelectorModel } from './../../utilidades/selector-multiple/MultipleSelectorModel';
 import { PeliculaCreacionDTO, PeliculaDTO } from './../pelicula';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { actorPeliculaDTO } from 'src/app/actores/actor';
 
 @Component({
   selector: 'app-formulario-peliculas',
@@ -12,29 +14,29 @@ export class FormularioPeliculasComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
-  form!: FormGroup;
+  form: FormGroup;
 
   @Input()
-  modelo!: PeliculaDTO;
+  modelo: PeliculaDTO;
 
   @Output()
   onSubmit: EventEmitter<PeliculaCreacionDTO> = new EventEmitter<PeliculaCreacionDTO>();
 
-  generosNoSeleccionados: MultipleSelectorModel[] = [
-    {llave:1, valor:'Drama'},
-    {llave:2, valor:'Accion'},
-    {llave:3, valor:'Comedia'}
-  ];
+  @Input()
+  generosNoSeleccionados: MultipleSelectorModel[];
 
   generosSeleccionados: MultipleSelectorModel[] = [];
 
-  cinesNoSeleccionados: MultipleSelectorModel[] = [
-    {llave:1, valor:'Sunstar'},
-    {llave:2, valor:'Atlas'},
-    {llave:3, valor:'Candilejas'}
-  ];
+  @Input()
+  cinesNoSeleccionados: MultipleSelectorModel[];
 
   cinesSeleccionados: MultipleSelectorModel[] = [];
+
+  @Input()
+  actoresSeleccionados: actorPeliculaDTO[] = [];
+
+  @Input()
+  errores: string[] = [];
 
 
   ngOnInit(): void {
@@ -47,8 +49,9 @@ export class FormularioPeliculasComponent implements OnInit {
       trailer: '',
       fechaLanzamiento: '',
       poster: '',
-      generosId:'',
-      cinesId:''
+      generosIds:'',
+      cinesIds:'',
+      actores:''
     });
 
     if(this.modelo !== undefined){
@@ -57,20 +60,26 @@ export class FormularioPeliculasComponent implements OnInit {
   }
 
   archivoSeleccionado(archivo: File) {
-    this.form.get('poster')?.setValue(archivo);
+    this.form.get('poster').setValue(archivo);
   }
 
   changeMarkdown(texto: string) {
-    this.form.get('resumen')?.setValue(texto);
+    this.form.get('resumen').setValue(texto);
   }
 
   guardarCambios() {
     //console.log(this.generosSeleccionados);
     const generosIds = this.generosSeleccionados.map(val => val.llave);
-    this.form.get('generosId')?.setValue(generosIds);
+    this.form.get('generosIds').setValue(generosIds);
 
     const cinesIds = this.cinesSeleccionados.map(val => val.llave);
-    this.form.get('cinesId')?.setValue(cinesIds);
+    this.form.get('cinesIds').setValue(cinesIds);
+
+    const actores = this.actoresSeleccionados.map(val => {
+      return {id: val.id, personaje: val.personaje}
+    });
+
+    this.form.get('actores').setValue(actores);
 
     this.onSubmit.emit(this.form.value);
   }
