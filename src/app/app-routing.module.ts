@@ -1,3 +1,4 @@
+import { DetallePeliculaComponent } from './peliculas/detalle-pelicula/detalle-pelicula.component';
 import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
 import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
 import { EditarCineComponent } from './cines/editar-cine/editar-cine.component';
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'peliculas/crear', component: CrearPeliculaComponent },
   { path: 'peliculas/editar/:id', component: EditarPeliculaComponent },
   { path: 'peliculas/buscar', component: FiltroPeliculasComponent },
+  { path: 'pelicula/:id', component: DetallePeliculaComponent},
 
   { path: '**', redirectTo: '' }
 
