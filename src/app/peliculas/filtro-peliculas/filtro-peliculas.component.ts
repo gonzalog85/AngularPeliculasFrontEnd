@@ -28,7 +28,7 @@ export class FiltroPeliculasComponent implements OnInit {
   cantidadElementosAMoctrar = 10;
   cantidadElementos;
 
-  peliculas: PeliculaDTO[] = [];
+  peliculas: PeliculaDTO[];
 
 
   formularioOriginal = {
@@ -43,7 +43,6 @@ export class FiltroPeliculasComponent implements OnInit {
   }
 
   cargarDatos() {
-
     this.generosService.obtenerTodos().subscribe(generos => {
       this.generos = generos;
       this.form = this.formBuilder.group(this.formularioOriginal);
