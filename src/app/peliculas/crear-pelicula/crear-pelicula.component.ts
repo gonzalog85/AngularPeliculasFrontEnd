@@ -35,9 +35,10 @@ export class CrearPeliculaComponent implements OnInit {
 
   guardarCambios(pelicula: PeliculaCreacionDTO){
     //logica guardar en base de datos
-    console.log(pelicula);
+    //console.log(pelicula);
     this.peliculasService.crear(pelicula)
-    .subscribe(() => console.log('Creacion exitosa'), error => this.errores = parsearErroresAPI(error));
+    .subscribe((id:number) => this.router.navigate(['/pelicula/' + id]),
+    error => this.errores = parsearErroresAPI(error));
   }
 
 }

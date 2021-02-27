@@ -1,4 +1,3 @@
-import { ActoresService } from './../../actores/actores.service';
 import { MultipleSelectorModel } from './../../utilidades/selector-multiple/MultipleSelectorModel';
 import { PeliculaCreacionDTO, PeliculaDTO } from './../pelicula';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
