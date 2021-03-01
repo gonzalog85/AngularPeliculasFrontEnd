@@ -1,5 +1,3 @@
-<p>filtro-peliculas works!</p>
-
 <h2>Buscar Peliculas</h2>
 
 <mat-spinner *ngIf="!peliculas"></mat-spinner>
@@ -32,10 +30,5 @@
 
 <app-listado-peliculas (borrado)="borrado()" [peliculas]="peliculas"></app-listado-peliculas>
 
-<mat-paginator
-[length]="cantidadElementos"
-[pageSize]="cantidadElementosAMoctrar"
-[pageSizeOptions]="[5, 10, 20, 50]"
-showFirstLastButtons
-(page)="paginatorUpdate($event)"
-></mat-paginator>
+<mat-paginator [length]="cantidadElementos" [pageSize]="cantidadElementosAMoctrar" [pageSizeOptions]="[5, 10, 20, 50]"
+  showFirstLastButtons (page)="paginatorUpdate($event)"></mat-paginator>

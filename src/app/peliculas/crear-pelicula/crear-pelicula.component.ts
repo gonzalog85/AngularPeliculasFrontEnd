@@ -20,25 +20,23 @@ export class CrearPeliculaComponent implements OnInit {
   cinesNoSeleccionados: MultipleSelectorModel[];
 
   ngOnInit(): void {
-    this.peliculasService.postGet().subscribe (resultado => {
+    this.peliculasService.postGet().subscribe(resultado => {
 
       this.generosNoSeleccionados = resultado.generos.map(genero => {
-        return <MultipleSelectorModel> {llave: genero.id, valor: genero.nombre}
+        return <MultipleSelectorModel>{ llave: genero.id, valor: genero.nombre }
       });
 
       this.cinesNoSeleccionados = resultado.cines.map(cine => {
-        return <MultipleSelectorModel> {llave: cine.id, valor: cine.nombre}
+        return <MultipleSelectorModel>{ llave: cine.id, valor: cine.nombre }
       });
 
     }, error => console.error(error));
   }
 
-  guardarCambios(pelicula: PeliculaCreacionDTO){
-    //logica guardar en base de datos
-    //console.log(pelicula);
+  guardarCambios(pelicula: PeliculaCreacionDTO) {
     this.peliculasService.crear(pelicula)
-    .subscribe((id:number) => this.router.navigate(['/pelicula/' + id]),
-    error => this.errores = parsearErroresAPI(error));
+      .subscribe((id: number) => this.router.navigate(['/pelicula/' + id]),
+        error => this.errores = parsearErroresAPI(error));
   }
 
 }

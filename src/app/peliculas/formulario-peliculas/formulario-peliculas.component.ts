@@ -71,7 +71,6 @@ export class FormularioPeliculasComponent implements OnInit {
   }
 
   guardarCambios() {
-    //console.log(this.generosSeleccionados);
     const generosIds = this.generosSeleccionados.map(val => val.llave);
     this.form.get('generosIds').setValue(generosIds);
 

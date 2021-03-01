@@ -24,33 +24,33 @@ export class EditarPeliculaComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-          this.peliculasService.putGet(params.id).subscribe(peliculaPutGet => {
-            this.modelo = peliculaPutGet.pelicula;
+      this.peliculasService.putGet(params.id).subscribe(peliculaPutGet => {
+        this.modelo = peliculaPutGet.pelicula;
 
-            this.generosNoSeleccionados = peliculaPutGet.generosNoSeleccionados.map(genero => {
-              return <MultipleSelectorModel> {llave: genero.id, valor: genero.nombre}
-            });
+        this.generosNoSeleccionados = peliculaPutGet.generosNoSeleccionados.map(genero => {
+          return <MultipleSelectorModel>{ llave: genero.id, valor: genero.nombre }
+        });
 
-            this.generosSeleccionados = peliculaPutGet.generosSeleccionados.map(genero => {
-              return <MultipleSelectorModel> {llave: genero.id, valor: genero.nombre}
-            });
+        this.generosSeleccionados = peliculaPutGet.generosSeleccionados.map(genero => {
+          return <MultipleSelectorModel>{ llave: genero.id, valor: genero.nombre }
+        });
 
-            this.cinesNoSeleccionados = peliculaPutGet.cinesNoSeleccionados.map(cine => {
-              return <MultipleSelectorModel> {llave: cine.id, valor: cine.nombre}
-            });
+        this.cinesNoSeleccionados = peliculaPutGet.cinesNoSeleccionados.map(cine => {
+          return <MultipleSelectorModel>{ llave: cine.id, valor: cine.nombre }
+        });
 
-            this.cinesSeleccionados = peliculaPutGet.cinesSeleccionados.map(cine => {
-              return <MultipleSelectorModel> {llave: cine.id, valor: cine.nombre}
-            });
+        this.cinesSeleccionados = peliculaPutGet.cinesSeleccionados.map(cine => {
+          return <MultipleSelectorModel>{ llave: cine.id, valor: cine.nombre }
+        });
 
-            this.actoresSeleccionados = peliculaPutGet.actores;
-          });
+        this.actoresSeleccionados = peliculaPutGet.actores;
+      });
     });
   }
 
   guardarCambios(pelicula: PeliculaCreacionDTO) {
     this.peliculasService.editar(this.modelo.id, pelicula)
-    .subscribe(() => this.router.navigate(['/pelicula/' + this.modelo.id]));
+      .subscribe(() => this.router.navigate(['/pelicula/' + this.modelo.id]));
   }
 
 }

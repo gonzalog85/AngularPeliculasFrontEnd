@@ -14,7 +14,7 @@ export function parsearErroresAPI(response: any): string[] {
   if (response.error) {
     if (typeof response.error === 'string') {
       resultado.push(response.error);
-    } else if (Array.isArray(response.error)){
+    } else if (Array.isArray(response.error)) {
       response.error.forEach(valor => resultado.push(valor.description));
     } else {
       const mapaErrores = response.error.errors;
@@ -30,7 +30,7 @@ export function parsearErroresAPI(response: any): string[] {
   return resultado;
 }
 
-export function formatearFecha(date: Date){
+export function formatearFecha(date: Date) {
   date = new Date(date);
   const formato = new Intl.DateTimeFormat('en', {
     year: 'numeric',
@@ -39,9 +39,9 @@ export function formatearFecha(date: Date){
   });
 
   const [
-    {value: month},,
-    {value: day},,
-    {value: year}
+    { value: month }, ,
+    { value: day }, ,
+    { value: year }
   ] = formato.formatToParts(date);
 
   return `${year}-${month}-${day}`;

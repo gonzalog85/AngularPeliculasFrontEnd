@@ -19,13 +19,12 @@ export class RegistroComponent implements OnInit {
 
   errores: string[] = [];
 
-  registrar(credenciales: credencialesUsuario){
+  registrar(credenciales: credencialesUsuario) {
     this.seguridadService.registrar(credenciales)
-    .subscribe(respuesta => {
-      // console.log(respuesta);
-      this.seguridadService.guardarToken(respuesta);
-      this.router.navigate(['/']);
-    }, errores => this.errores = parsearErroresAPI(errores));
+      .subscribe(respuesta => {
+        this.seguridadService.guardarToken(respuesta);
+        this.router.navigate(['/']);
+      }, errores => this.errores = parsearErroresAPI(errores));
   }
 
 }

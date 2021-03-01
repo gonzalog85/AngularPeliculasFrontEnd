@@ -14,16 +14,16 @@ export class LoginComponent implements OnInit {
   constructor(private seguridadService: SeguridadService,
     private router: Router) { }
 
-    errores: string[] = [];
+  errores: string[] = [];
 
   ngOnInit(): void {
   }
 
-  login(credenciales: credencialesUsuario){
+  login(credenciales: credencialesUsuario) {
     this.seguridadService.login(credenciales)
-    .subscribe(respuesta => {
-      this.seguridadService.guardarToken(respuesta);
-      this.router.navigate(['/']);
-    }, errores => this.errores = parsearErroresAPI(errores));
+      .subscribe(respuesta => {
+        this.seguridadService.guardarToken(respuesta);
+        this.router.navigate(['/']);
+      }, errores => this.errores = parsearErroresAPI(errores));
   }
 }

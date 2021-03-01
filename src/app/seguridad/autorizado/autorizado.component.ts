@@ -11,15 +11,15 @@ export class AutorizadoComponent implements OnInit {
   constructor(private seguridadService: SeguridadService) { }
 
   @Input()
-  rol:string;
+  rol: string;
 
   ngOnInit(): void {
   }
 
   estaAutorizado(): boolean {
-    if(this.rol){
+    if (this.rol) {
       return this.seguridadService.obtenerRol() === this.rol;
-    }else{
+    } else {
       return this.seguridadService.estaLogueado();
     }
   }

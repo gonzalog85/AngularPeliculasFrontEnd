@@ -29,9 +29,4 @@ export class LandingPageComponent implements OnInit {
     this.cargarDatos();
   }
 
-  manejarRated(calificado: number): void {
-    alert(calificado);
-  }
-
-
 }

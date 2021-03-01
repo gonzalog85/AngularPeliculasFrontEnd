@@ -29,7 +29,6 @@ export class IndiceActoresComponent implements OnInit {
     this.actoresService.obtenerTodos(pagina, cantidadElementosAMostrar)
       .subscribe((respuesta: HttpResponse<actorDTO[]>) => {
         this.actores = respuesta.body;
-        // console.log(respuesta.headers.get('cantidadTotalRegistros'));
         this.cantidadTotalRegistros = respuesta.headers.get('cantidadTotalRegistros');
       }, error => console.error(error));
   }
@@ -40,7 +39,7 @@ export class IndiceActoresComponent implements OnInit {
     this.cargarRegistros(this.paginaActual, this.cantidadRegistrosAMostrar);
   }
 
-  borrar(id: number){
+  borrar(id: number) {
     this.actoresService.borrar(id).subscribe(() => {
       this.cargarRegistros(this.paginaActual, this.cantidadRegistrosAMostrar);
     }, error => console.log(error));

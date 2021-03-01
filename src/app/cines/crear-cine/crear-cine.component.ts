@@ -9,7 +9,7 @@ import { CinesService } from '../cines.service';
   templateUrl: './crear-cine.component.html',
   styleUrls: ['./crear-cine.component.css']
 })
-export class CrearCineComponent{
+export class CrearCineComponent {
 
   errores: string[] = [];
 
@@ -17,10 +17,7 @@ export class CrearCineComponent{
 
 
   guardarCambios(cine: cineCreacionDTO) {
-    // ... guardar los cambios en la base de dato - comunicacion con la web api
-    //console.log(genero);
     this.cinesService.crear(cine).subscribe(() => {
-      //no retorna nada
       this.router.navigate(['/cines']);
     }, error => this.errores = parsearErroresAPI(error));
   }

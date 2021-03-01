@@ -20,11 +20,11 @@ export class GenerosService {
     return this.http.get<generoDTO[]>(this.apiURL, { observe: 'response', params });
   }
 
-  public obtenerTodos(){
+  public obtenerTodos() {
     return this.http.get<generoDTO[]>(`${this.apiURL}/todos`);
   }
 
-  public obtenerPorId(id: number): Observable<generoDTO>{
+  public obtenerPorId(id: number): Observable<generoDTO> {
     return this.http.get<generoDTO>(`${this.apiURL}/${id}`);
   }
 
@@ -32,11 +32,11 @@ export class GenerosService {
     return this.http.post(this.apiURL, genero);
   }
 
-  public editar(id: number, genero: generoCreacionDTO){
+  public editar(id: number, genero: generoCreacionDTO) {
     return this.http.put(`${this.apiURL}/${id}`, genero);
   }
 
-  public borrar(id: number){
+  public borrar(id: number) {
     return this.http.delete(`${this.apiURL}/${id}`);
   }
 }

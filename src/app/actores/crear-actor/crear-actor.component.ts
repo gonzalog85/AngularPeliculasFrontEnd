@@ -18,9 +18,7 @@ export class CrearActorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  guardarCambios(actor: actorCreacionDTO){
-    // ... Guardar cambios en base de datos
-    // console.log(actor);
+  guardarCambios(actor: actorCreacionDTO) {
     this.actoresService.crear(actor).subscribe(() => {
       this.router.navigate(['/actores']);
     }, error => this.errores = parsearErroresAPI(error));

@@ -2,7 +2,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { PeliculasService } from './../peliculas.service';
 import { GenerosService } from './../../generos/generos.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { generoDTO } from 'src/app/generos/genero';

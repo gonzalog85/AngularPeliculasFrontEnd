@@ -28,37 +28,25 @@ export class AutocompleteActoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.control.valueChanges.subscribe(nombre => {
-      if(typeof nombre === 'string' && nombre){
+      if (typeof nombre === 'string' && nombre) {
         this.actoresService.obtenerPorNombre(nombre).subscribe(actores => {
           this.actoresAMostrar = actores;
-          //console.log('actores: ' + actores)
         }, error => console.error(error));
       }
     });
   }
 
-  optionSelected(event: MatAutocompleteSelectedEvent){
-    console.log(event.option.value);
+  optionSelected(event: MatAutocompleteSelectedEvent) {
     this.actoresSeleccionados.push(event.option.value);
     this.control.patchValue('');
-    if(this.table !== undefined){
+    if (this.table !== undefined) {
       this.table.renderRows();
     }
 
-    /*
-   const index = this.actoresSeleccionados.findIndex((x: { id: any; }) => x.id === event.option.value.id);
-   if (index === -1){
-     this.actoresSeleccionados.push(event.option.value);
-     if (this.table !== undefined){
-       this.table.renderRows();
-     }
-   }
-   this.control.patchValue('');
-   */
   }
 
-  eliminar(actor:any){
-    const indice = this.actoresSeleccionados.findIndex((a:any) => a.nombre === actor.nombre);
+  eliminar(actor: any) {
+    const indice = this.actoresSeleccionados.findIndex((a: any) => a.nombre === actor.nombre);
     this.actoresSeleccionados.splice(indice, 1);
     this.table.renderRows();
   }

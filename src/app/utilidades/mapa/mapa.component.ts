@@ -23,16 +23,16 @@ export class MapaComponent implements OnInit {
   ngOnInit(): void {
     this.capas = this.coordenadasIniciales.map(valor => {
       let marcador = marker([valor.latitud, valor.longitud])
-        if(valor.mensaje){
-          marcador.bindPopup(valor.mensaje, {autoClose:false, autoPan:false});
-        }
+      if (valor.mensaje) {
+        marcador.bindPopup(valor.mensaje, { autoClose: false, autoPan: false });
+      }
       return marcador;
     });
   }
 
   options = {
     layers: [
-      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, minZoom:1, attribution: '...' })
+      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, minZoom: 1, attribution: '...' })
     ],
     zoom: 12,
     center: latLng(-26.830484531710084, -65.20384609722933)
@@ -41,16 +41,15 @@ export class MapaComponent implements OnInit {
 
   capas: Marker<any>[] = [];
 
-  manejarClick(event: LeafletMouseEvent){
-    if(!this.soloLectura){
+  manejarClick(event: LeafletMouseEvent) {
+    if (!this.soloLectura) {
       const latitud = event.latlng.lat;
       const longitud = event.latlng.lng;
       //console.log({latitud, longitud});
-
       this.capas = [];
 
       this.capas.push(marker([latitud, longitud]));
-      this.coordenadaSeleccionada.emit({latitud: latitud, longitud:longitud});
+      this.coordenadaSeleccionada.emit({ latitud: latitud, longitud: longitud });
     }
   }
 

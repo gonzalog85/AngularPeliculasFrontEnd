@@ -30,7 +30,6 @@ export class IndiceUsuariosComponent implements OnInit {
     this.seguridadService.obtenerUsuarios(pagina, cantidadElementosAMostrar)
       .subscribe((respuesta: HttpResponse<usuarioDTO[]>) => {
         this.usuarios = respuesta.body;
-        // console.log(respuesta.headers.get('cantidadTotalRegistros'));
         this.cantidadTotalRegistros = respuesta.headers.get('cantidadTotalRegistros');
       }, error => console.error(error));
   }
@@ -41,14 +40,14 @@ export class IndiceUsuariosComponent implements OnInit {
     this.cargarRegistros(this.paginaActual, this.cantidadRegistrosAMostrar);
   }
 
-  hacerAdmin(usuarioId: string){
+  hacerAdmin(usuarioId: string) {
     this.seguridadService.hacerAdmin(usuarioId)
-    .subscribe(() => Swal.fire('Exitoso', 'La operacion se ha realiado', 'success'));
+      .subscribe(() => Swal.fire('Exitoso', 'La operacion se ha realiado', 'success'));
   }
 
-  removerAdmin(usuarioId: string){
+  removerAdmin(usuarioId: string) {
     this.seguridadService.removerAdmin(usuarioId)
-    .subscribe(() => Swal.fire('Exitoso', 'La operacion se ha realiado', 'success'));
+      .subscribe(() => Swal.fire('Exitoso', 'La operacion se ha realiado', 'success'));
   }
 
 }

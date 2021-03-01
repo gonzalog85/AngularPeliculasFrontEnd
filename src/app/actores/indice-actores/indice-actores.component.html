@@ -1,5 +1,3 @@
-<p>indice-actores works!</p>
-
 <h2>Crear Actor</h2>
 
 <button mat-flat-button color="primary" routerLink="/actores/crear">Crear nuevo</button>
@@ -26,9 +24,8 @@
           <td mat-cell *matCellDef="let element">
             <a routerLink="/actores/editar/{{element.id}}" mat-flat-button color="primary">Editar</a>
             <button mat-flat-button color="warn"
-            [swal]="{title:'Confirmación', icon:'warning', text:'¿Esta seguro que desea borrar el registro?', showCancelButton:true}"
-            (confirm)="borrar(element.id)"
-            >Borrar</button>
+              [swal]="{title:'Confirmación', icon:'warning', text:'¿Esta seguro que desea borrar el registro?', showCancelButton:true}"
+              (confirm)="borrar(element.id)">Borrar</button>
           </td>
         </ng-container>
 

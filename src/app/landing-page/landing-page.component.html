@@ -1,11 +1,7 @@
-<p>landing-page works!</p>
-<app-rating (rated)="manejarRated($event)"></app-rating>
+<h3>En Cines</h3>
 
+<app-listado-peliculas (borrado)="borrado()" [peliculas]="peliculasEnCines"></app-listado-peliculas>
 
-  <h3>En Cines</h3>
+<h3>Proximos Estrenos</h3>
 
-  <app-listado-peliculas (borrado)="borrado()" [peliculas]="peliculasEnCines"></app-listado-peliculas>
-
-  <h3>Proximos Estrenos</h3>
-
-  <app-listado-peliculas (borrado)="borrado()" [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+<app-listado-peliculas (borrado)="borrado()" [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>

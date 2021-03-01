@@ -1,5 +1,5 @@
 import { RatingService } from './../../rating/rating.service';
-import { Coordenada, CoordenadaConMensaje } from './../../utilidades/mapa/coordenada';
+import { CoordenadaConMensaje } from './../../utilidades/mapa/coordenada';
 import { ActivatedRoute } from '@angular/router';
 import { PeliculasService } from './../peliculas.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,26 +25,25 @@ export class DetallePeliculaComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.peliculasService.obtenerPorId(params.id).subscribe(pelicula => {
-        //console.log(pelicula);
         this.pelicula = pelicula;
         this.fechaLanzamiento = new Date(this.pelicula.fechaLanzamiento);
         this.trailerURL = this.genererURLYoutubeEmbed(this.pelicula.trailer);
         this.coordenadas = pelicula.cines.map(cine => {
-          return {longitud: cine.longitud, latitud: cine.latitud, mensaje: cine.nombre}
+          return { longitud: cine.longitud, latitud: cine.latitud, mensaje: cine.nombre }
         });
       })
     })
   }
 
-  rated(puntuacion: number){
+  rated(puntuacion: number) {
     this.ratingService.rate(this.pelicula.id, puntuacion)
-    .subscribe(() => {
-      Swal.fire('Exitoso', 'Su voto ha sido recibido', 'success');
-    })
+      .subscribe(() => {
+        Swal.fire('Exitoso', 'Su voto ha sido recibido', 'success');
+      })
   }
 
-  genererURLYoutubeEmbed(url:any): SafeResourceUrl {
-    if(!url){
+  genererURLYoutubeEmbed(url: any): SafeResourceUrl {
+    if (!url) {
       return '';
     }
 
@@ -55,7 +54,7 @@ export class DetallePeliculaComponent implements OnInit {
     }
 
     return this.sanitizer
-    .bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${video_id}`);
+      .bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${video_id}`);
   }
 
 }

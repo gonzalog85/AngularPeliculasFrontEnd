@@ -29,7 +29,6 @@ export class IndiceCinesComponent implements OnInit {
     this.cinesService.obtenerTodos(pagina, cantidadElementosAMostrar)
       .subscribe((respuesta: HttpResponse<cineDTO[]>) => {
         this.cines = respuesta.body;
-        // console.log(respuesta.headers.get('cantidadTotalRegistros'));
         this.cantidadTotalRegistros = respuesta.headers.get('cantidadTotalRegistros');
       }, error => console.error(error));
   }

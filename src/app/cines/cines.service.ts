@@ -20,19 +20,19 @@ export class CinesService {
     return this.http.get<cineDTO[]>(this.apiURL, { observe: 'response', params });
   }
 
-  public obtenerPorId(id: number): Observable<cineDTO>{
+  public obtenerPorId(id: number): Observable<cineDTO> {
     return this.http.get<cineDTO>(`${this.apiURL}/${id}`);
   }
 
-  public crear(cine: cineCreacionDTO){
+  public crear(cine: cineCreacionDTO) {
     return this.http.post(this.apiURL, cine);
   }
 
-  public editar(id: number, cine: cineCreacionDTO){
+  public editar(id: number, cine: cineCreacionDTO) {
     return this.http.put(`${this.apiURL}/${id}`, cine);
   }
 
-  public borrar(id: number){
+  public borrar(id: number) {
     return this.http.delete(`${this.apiURL}/${id}`);
   }
 }

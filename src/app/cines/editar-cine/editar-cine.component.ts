@@ -19,7 +19,6 @@ export class EditarCineComponent implements OnInit {
 
   ngOnInit(): void {
    this.activatedRoute.params.subscribe(params =>{
-     //alert(params.id);
      this.cinesService.obtenerPorId(params.id).subscribe(cine => {
        this.modelo = cine;
      }, () => this.router.navigate(['/cines']))
@@ -27,8 +26,6 @@ export class EditarCineComponent implements OnInit {
   }
 
   guardarCambios(cine: cineCreacionDTO) {
-    // ... guardar los cambios en la base de dato - comunicacion con la web api
-    // console.log(genero);
     this.cinesService.editar(this.modelo.id, cine).subscribe(() => {
       this.router.navigate(['/cines']);
     }, error => this.errores = parsearErroresAPI(error))

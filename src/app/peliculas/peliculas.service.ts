@@ -18,7 +18,7 @@ export class PeliculasService {
     return this.http.get<LandingPageDTO>(this.apiURL);
   }
 
-  public obtenerPorId(id:number): Observable<PeliculaDTO>{
+  public obtenerPorId(id: number): Observable<PeliculaDTO> {
     return this.http.get<PeliculaDTO>(`${this.apiURL}/${id}`);
   }
 
@@ -26,14 +26,14 @@ export class PeliculasService {
     return this.http.get<PeliculaPostGet>(`${this.apiURL}/postget`);
   }
 
-  public putGet(id:number): Observable<PeliculaPutGet> {
+  public putGet(id: number): Observable<PeliculaPutGet> {
     return this.http.get<PeliculaPutGet>(`${this.apiURL}/putget/${id}`);
   }
 
   public filtrar(valores: any): Observable<any> {
-    const params = new HttpParams({fromObject: valores});
+    const params = new HttpParams({ fromObject: valores });
     return this.http.get<PeliculaDTO[]>(`${this.apiURL}/filtrar`,
-    {params, observe: 'response'});
+      { params, observe: 'response' });
   }
 
   public crear(pelicula: PeliculaCreacionDTO): Observable<number> {
@@ -41,7 +41,7 @@ export class PeliculasService {
     return this.http.post<number>(this.apiURL, formData);
   }
 
-  public editar(id:number, pelicula: PeliculaCreacionDTO) {
+  public editar(id: number, pelicula: PeliculaCreacionDTO) {
     const formData = this.construirFormData(pelicula);
     return this.http.put(`${this.apiURL}/${id}`, formData);
   }
@@ -58,11 +58,11 @@ export class PeliculasService {
     formData.append('trailer', pelicula.trailer);
     formData.append('enCines', String(pelicula.enCines));
 
-    if(pelicula.fechaLanzamiento){
+    if (pelicula.fechaLanzamiento) {
       formData.append('fechaLanzamiento', formatearFecha(pelicula.fechaLanzamiento));
     }
 
-    if(pelicula.poster){
+    if (pelicula.poster) {
       formData.append('poster', pelicula.poster);
     }
 

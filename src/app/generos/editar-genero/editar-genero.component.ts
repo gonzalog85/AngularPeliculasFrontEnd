@@ -15,20 +15,17 @@ export class EditarGeneroComponent implements OnInit {
     private generosService: GenerosService) { }
 
   modelo: generoDTO;
-  errores: string[]=[];
+  errores: string[] = [];
 
   ngOnInit(): void {
-   this.activatedRoute.params.subscribe(params =>{
-     //alert(params.id);
-     this.generosService.obtenerPorId(params.id).subscribe(genero => {
-       this.modelo = genero;
-     }, () => this.router.navigate(['/generos']))
-   });
+    this.activatedRoute.params.subscribe(params => {
+      this.generosService.obtenerPorId(params.id).subscribe(genero => {
+        this.modelo = genero;
+      }, () => this.router.navigate(['/generos']))
+    });
   }
 
   guardarCambios(genero: generoCreacionDTO) {
-    // ... guardar los cambios en la base de dato - comunicacion con la web api
-    // console.log(genero);
     this.generosService.editar(this.modelo.id, genero).subscribe(() => {
       this.router.navigate(['/generos']);
     }, error => this.errores = parsearErroresAPI(error))

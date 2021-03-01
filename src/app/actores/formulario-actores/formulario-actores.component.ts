@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FormularioActoresComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   form: FormGroup;
 
@@ -27,30 +27,30 @@ export class FormularioActoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nombre:['', {
+      nombre: ['', {
         validators: [Validators.required]
       }],
-      fechaNacimiento:'',
-      foto:'',
-      biografia:''
+      fechaNacimiento: '',
+      foto: '',
+      biografia: ''
     });
-    if(this.modelo != undefined){
+    if (this.modelo != undefined) {
       this.form.patchValue(this.modelo)
     }
   }
 
-  archivoSeleccionado(file){
+  archivoSeleccionado(file) {
     this.imagenCambiada = true;
     this.form.get('foto').setValue(file);
   }
 
-  cambioMarkdown(texto:string){
+  cambioMarkdown(texto: string) {
     this.form.get('biografia').setValue(texto);
   }
 
-  OnSubmit(){
-    if(!this.imagenCambiada){
-      this.form.patchValue({'foto': null});
+  OnSubmit() {
+    if (!this.imagenCambiada) {
+      this.form.patchValue({ 'foto': null });
     }
     this.onSubmit.emit(this.form.value);
   }

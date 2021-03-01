@@ -1,11 +1,5 @@
 <app-listado-generico [listado]="peliculas">
 
-  <!--Enviar mensaje personalizado por referencia-->
-  <!-- <ng-container vacio>
-    <div>Mensaje personalizado para contenido <b>Vacio</b></div>
-  </ng-container>
--->
-
   <ng-container contenido>
 
     <div class="peliculas-contenedor">
@@ -17,17 +11,16 @@
           <a [routerLink]="'/pelicula/' + pelicula.id">{{pelicula.titulo}}</a>
         </p>
 
-
-<app-autorizado [rol]="'admin'">
-  <ng-container autorizado>
-    <div>
-      <a mat-flat-button color="primary" [routerLink]="'/peliculas/editar/' + pelicula.id">Editar</a>
-      <button mat-flat-button color="warn" type="button"
-        [swal]="{title:'Confirmación', icon:'warning', text:'¿Esta seguro que desea borrar el registro?', showCancelButton:true}"
-        (confirm)="borrar(pelicula.id)">Borrar</button>
-    </div>
-  </ng-container>
-</app-autorizado>
+        <app-autorizado [rol]="'admin'">
+          <ng-container autorizado>
+            <div>
+              <a mat-flat-button color="primary" [routerLink]="'/peliculas/editar/' + pelicula.id">Editar</a>
+              <button mat-flat-button color="warn" type="button"
+                [swal]="{title:'Confirmación', icon:'warning', text:'¿Esta seguro que desea borrar el registro?', showCancelButton:true}"
+                (confirm)="borrar(pelicula.id)">Borrar</button>
+            </div>
+          </ng-container>
+        </app-autorizado>
 
 
       </div>

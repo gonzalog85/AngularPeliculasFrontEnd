@@ -15,24 +15,20 @@ export class EditarActorComponent implements OnInit {
     private actoresService: ActoresService) { }
 
   modelo: actorDTO;
-  errores: string[]=[];
+  errores: string[] = [];
 
   ngOnInit(): void {
-   this.activatedRoute.params.subscribe(params =>{
-     //alert(params.id);
-     this.actoresService.obtenerPorId(params.id).subscribe(actor => {
-       this.modelo = actor;
-     }, () => this.router.navigate(['/actores']))
-   });
+    this.activatedRoute.params.subscribe(params => {
+      this.actoresService.obtenerPorId(params.id).subscribe(actor => {
+        this.modelo = actor;
+      }, () => this.router.navigate(['/actores']))
+    });
   }
 
   guardarCambios(actor: actorCreacionDTO) {
-    // ... guardar los cambios en la base de dato - comunicacion con la web api
-    // console.log(genero);
     this.actoresService.editar(this.modelo.id, actor).subscribe(() => {
       this.router.navigate(['/actores']);
     }, error => this.errores = parsearErroresAPI(error))
   }
-
 
 }

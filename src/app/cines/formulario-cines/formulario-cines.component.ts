@@ -1,5 +1,5 @@
 import { Coordenada } from './../../utilidades/mapa/coordenada';
-import { cineCreacionDTO, cineDTO } from './../cine';
+import { cineCreacionDTO } from './../cine';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
@@ -40,7 +40,7 @@ export class FormularioCinesComponent implements OnInit {
 
     if (this.modelo !== undefined) {
       this.form.patchValue(this.modelo);
-      this.coordenadaInicial.push({latitud: this.modelo.latitud, longitud: this.modelo.longitud});
+      this.coordenadaInicial.push({ latitud: this.modelo.latitud, longitud: this.modelo.longitud });
     }
   }
 

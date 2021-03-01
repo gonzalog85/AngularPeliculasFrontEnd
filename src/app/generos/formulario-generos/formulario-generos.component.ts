@@ -16,7 +16,7 @@ export class FormularioGenerosComponent implements OnInit {
   form: FormGroup;
 
   @Input()
-  errores: string[] =[];
+  errores: string[] = [];
 
   @Input()
   modelo: generoCreacionDTO;

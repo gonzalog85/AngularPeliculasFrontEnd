@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class InputMarkdownComponent implements OnInit {
 
   @Input()
-  contenidoMarkdown:any ='';
+  contenidoMarkdown: any = '';
 
   @Input()
   placeHolderTextArea: string = 'Texto';
@@ -21,17 +21,9 @@ export class InputMarkdownComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onChange(evento:any): void{
+  onChange(evento: any): void {
     //const texto = evento.target.value;
     this.changeMarkdown.emit(evento.target.value);
   }
-
-  /*
-  inputTextArea(evento:any):void{
-    const texto= evento.target.value;
-    this.contenidoMakdown = texto;
-    this.changeMarkdown.emit(texto);
-  }
-  */
 
 }

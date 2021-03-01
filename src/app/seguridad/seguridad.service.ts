@@ -22,36 +22,36 @@ export class SeguridadService {
     params = params.append('pagina', pagina.toString());
     params = params.append('recordsPorPagina', recordsPorPagina.toString());
     return this.httpClient.get<usuarioDTO[]>(`${this.apiURL}/listadousuarios`,
-    {observe: 'response', params})
+      { observe: 'response', params })
   }
 
-  hacerAdmin(usuarioId: string){
+  hacerAdmin(usuarioId: string) {
     const headers = new HttpHeaders('Content-Type: application/json');
-    return this.httpClient.post(`${this.apiURL}/hacerAdmin`, JSON.stringify(usuarioId), {headers});
+    return this.httpClient.post(`${this.apiURL}/hacerAdmin`, JSON.stringify(usuarioId), { headers });
   }
 
-  removerAdmin(usuarioId: string){
+  removerAdmin(usuarioId: string) {
     const headers = new HttpHeaders('Content-Type: application/json');
-    return this.httpClient.post(`${this.apiURL}/removerAdmin`, JSON.stringify(usuarioId), {headers});
+    return this.httpClient.post(`${this.apiURL}/removerAdmin`, JSON.stringify(usuarioId), { headers });
   }
 
   estaLogueado(): boolean {
 
     const token = localStorage.getItem(this.llaveToken);
 
-    if(!token){
+    if (!token) {
       return false;
     }
 
     const expiracion = localStorage.getItem(this.llaveExpiracion);
-    const fechaExpiracion  = new Date(expiracion);
-    if(fechaExpiracion <= new Date()){
+    const fechaExpiracion = new Date(expiracion);
+    if (fechaExpiracion <= new Date()) {
       this.logout();
     }
     return true;
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem(this.llaveToken);
     localStorage.removeItem(this.llaveExpiracion);
   }
@@ -60,28 +60,28 @@ export class SeguridadService {
     return this.obtenerCampoJWT(this.campoRol);
   }
 
-  obtenerCampoJWT(campo:string):string{
+  obtenerCampoJWT(campo: string): string {
     const token = localStorage.getItem(this.llaveToken);
-    if(!token){return '';}
+    if (!token) { return ''; }
 
     var dataToken = JSON.parse(atob(token.split('.')[1]));
     return dataToken[campo];
   }
 
-  registrar(credenciales: credencialesUsuario): Observable<respuestaAutenticacion>{
+  registrar(credenciales: credencialesUsuario): Observable<respuestaAutenticacion> {
     return this.httpClient.post<respuestaAutenticacion>(this.apiURL + '/crear', credenciales);
   }
 
-  login(credenciales: credencialesUsuario): Observable<respuestaAutenticacion>{
+  login(credenciales: credencialesUsuario): Observable<respuestaAutenticacion> {
     return this.httpClient.post<respuestaAutenticacion>(this.apiURL + '/login', credenciales);
   }
 
-  guardarToken(respuestaAutenticacion: respuestaAutenticacion){
+  guardarToken(respuestaAutenticacion: respuestaAutenticacion) {
     localStorage.setItem(this.llaveToken, respuestaAutenticacion.token);
     localStorage.setItem(this.llaveExpiracion, respuestaAutenticacion.expiracion.toString());
   }
 
-  obtenerToken(){
+  obtenerToken() {
     return localStorage.getItem(this.llaveToken);
   }
 }
