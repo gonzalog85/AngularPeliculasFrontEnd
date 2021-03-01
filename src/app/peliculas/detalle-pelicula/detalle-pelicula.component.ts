@@ -1,9 +1,11 @@
+import { RatingService } from './../../rating/rating.service';
 import { Coordenada, CoordenadaConMensaje } from './../../utilidades/mapa/coordenada';
 import { ActivatedRoute } from '@angular/router';
 import { PeliculasService } from './../peliculas.service';
 import { Component, OnInit } from '@angular/core';
 import { PeliculaDTO } from '../pelicula';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-pelicula',
@@ -13,7 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class DetallePeliculaComponent implements OnInit {
 
   constructor(private peliculasService: PeliculasService, private activatedRoute: ActivatedRoute,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer, private ratingService: RatingService) { }
 
   pelicula: PeliculaDTO;
   fechaLanzamiento: Date;
@@ -23,7 +25,7 @@ export class DetallePeliculaComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.peliculasService.obtenerPorId(params.id).subscribe(pelicula => {
-        console.log(pelicula);
+        //console.log(pelicula);
         this.pelicula = pelicula;
         this.fechaLanzamiento = new Date(this.pelicula.fechaLanzamiento);
         this.trailerURL = this.genererURLYoutubeEmbed(this.pelicula.trailer);
@@ -31,6 +33,13 @@ export class DetallePeliculaComponent implements OnInit {
           return {longitud: cine.longitud, latitud: cine.latitud, mensaje: cine.nombre}
         });
       })
+    })
+  }
+
+  rated(puntuacion: number){
+    this.ratingService.rate(this.pelicula.id, puntuacion)
+    .subscribe(() => {
+      Swal.fire('Exitoso', 'Su voto ha sido recibido', 'success');
     })
   }
 
