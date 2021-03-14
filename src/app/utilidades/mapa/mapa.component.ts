@@ -1,6 +1,6 @@
 import { Coordenada, CoordenadaConMensaje } from './coordenada';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { latLng, LeafletMouseEvent, Marker, marker, tileLayer } from 'leaflet';
+import { icon, latLng, LeafletMouseEvent, Marker, marker, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-mapa',
